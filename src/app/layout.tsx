@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Image from "next/image";
+import sushant from "./../../public/sushant.png";
+import Navbar from "@/component/Navbar";
+import GithubIcon from "@/component/Icons/Github";
+import InstagramIcon from "@/component/Icons/Instagra";
+import FacebookIcon from "@/component/Icons/facebook";
+import LinkedinIcon from "@/component/Icons/Linkedin";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +20,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`antialiased`}>
+        <div className="flex">
+          <div className="w-[16vw] h-[100vh] bg-[#244178]">
+            <div className="flex flex-col my-5 justify-center items-center">
+              <Image
+                alt={"sushant Image"}
+                src={sushant}
+                className="bg-white w-32 h-32 rounded-full ring-8 ring-gray-400 ring-opacity-30"
+              />
+              <h1 className="font-bold text-white mt-4 text-3xl">
+                Sushant Aryal
+              </h1>
+              <h3 className="mt-2 text-white">Web & GIS Developer</h3>
+            </div>
+            <div>
+              <div className=" w-full h-auto mb-10 flex items-center justify-center gap-4 flex-wrap">
+                <GithubIcon />
+                <LinkedinIcon />
+                <FacebookIcon />
+                <InstagramIcon />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-10 ml-8 ">
+              <Navbar />
+            </div>
+            <div className="absolute bottom-2 w-[16vw]">
+              <div className="text-center text-white">
+                <b>Sushant Aryal</b> 2025
+              </div>
+            </div>
+          </div>
+          <div className="w-[84vw] overflow-scroll"> {children}</div>
+        </div>
       </body>
     </html>
   );
