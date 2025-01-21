@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projectDetail, ProjectDetailtemp } from "../work";
+import { AcademicprojectDetail, ProjectDetailtemp } from "../work";
 import Carousel from "@/component/Caurosel/caurosel";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
@@ -9,7 +9,9 @@ export default async function PhotoPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const photos: ProjectDetailtemp = projectDetail.find((p) => p.id === id)!;
+  const photos: ProjectDetailtemp = AcademicprojectDetail.find(
+    (p: any) => p.id === id
+  )!;
 
   return (
     <div>

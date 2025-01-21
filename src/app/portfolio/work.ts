@@ -20,19 +20,24 @@ import HeatmapDensity from "./photos/Spatial_Data_Quality/Heat_map_Crime_Estonia
 import threeD from "./photos/3DModel/Final.jpg";
 import landscape from "./photos/LandScape/2.jpg";
 import visibility from "./photos/LandScape/3.jpg";
+import IOM from "./photos/Professional/IOM.png";
+import PlantSat from "./photos/Professional/plantsat.png";
 
 export type ProjectDetailtemp = {
   id: string;
+  topic?: string;
   name: string;
   src: StaticImageData[];
   description: string[];
   shortDescription: string;
 };
 
-export const projectDetail: ProjectDetailtemp[] = [
+export const AcademicprojectDetail: ProjectDetailtemp[] = [
   {
     id: "1",
     name: "Climate Data",
+    topic:
+      "Global Climate Data: Monthly and Seasonal Temperature and Precipitation Changes in Nepal",
     src: [
       Precipitaion_Difference,
       TemperatureDifference,
@@ -58,6 +63,7 @@ export const projectDetail: ProjectDetailtemp[] = [
   {
     id: "2",
     name: "Spatial Urban Data and Geoprocessing",
+    topic: "",
     src: [
       GreenSpaceChoropleth,
       Multi_Ring,
@@ -96,6 +102,23 @@ export const projectDetail: ProjectDetailtemp[] = [
     id: "6",
     name: "Landscape modelling",
     src: [landscape, visibility],
+    description: [""],
+    shortDescription: "",
+  },
+];
+
+export const ProfessionalWorkDetail: ProjectDetailtemp[] = [
+  {
+    id: "pw-1",
+    name: "IOM Migration movement visualization between India and Nepal",
+    src: [IOM],
+    description: [""],
+    shortDescription: "",
+  },
+  {
+    id: "pw-2",
+    name: "Plant Sat",
+    src: [PlantSat],
     description: [""],
     shortDescription: "",
   },

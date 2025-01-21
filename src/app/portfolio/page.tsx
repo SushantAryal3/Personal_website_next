@@ -1,5 +1,5 @@
 import React from "react";
-import { projectDetail } from "./work";
+import { AcademicprojectDetail } from "./work";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -17,9 +17,8 @@ const Portfolio = () => {
       </div>
       <div className="flex items-center justify-center">
         <div className="flex mt-9 py-2  border max-w-fit rounded-full">
-          <div className="px-8">All</div>
-          <div className="px-8">Academic</div>
-          <div className="px-8">Work</div>
+          <div className="px-8 cursor-pointer">Academic</div>
+          <div className="px-8 cursor-pointer">professional</div>
         </div>
       </div>
       {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -34,7 +33,7 @@ const Portfolio = () => {
         ))}
       </div> */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-        {projectDetail.map(({ id, src, name, shortDescription }) => (
+        {AcademicprojectDetail.map(({ id, src, name, shortDescription }) => (
           <Link key={id} href={`/portfolio/${id}`} className="group relative">
             <Image
               alt={name}
