@@ -3,5 +3,5 @@ export default function ComplexDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="h-[100vh] overflow-scroll">{children}</div>;
+  return <div className="h-[100vh] overflow-y-scroll">{children}</div>;
 }

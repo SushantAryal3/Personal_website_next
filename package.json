@@ -13,14 +13,10 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.0",
     "@mui/material": "^6.4.0",
-    "@react-three/drei": "^9.0.1",
-    "@react-three/fiber": "^9.0.0-alpha.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "next": "15.1.5",
-    "react-multi-carousel": "^2.8.5",
-    "three": "^0.172.0",
-    "three-stdlib": "^2.35.10"
+    "react-multi-carousel": "^2.8.5"
   },
   "devDependencies": {
     "typescript": "^5",
