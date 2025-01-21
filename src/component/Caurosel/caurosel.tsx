@@ -12,10 +12,12 @@ const CarouselImage = ({
   discription: string[];
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const handleOnChange = (newIndex: number) => {
-    setCurrentIndex(newIndex);
+  console.log(currentIndex);
+  console.log(images.length);
+  const handleOnChange = (number: any) => {
+    setCurrentIndex(number);
   };
-  console.log(currentIndex, "I am current index");
+
   return (
     <>
       <div
@@ -66,7 +68,7 @@ const CarouselImage = ({
               items: 1,
             },
           }}
-          rewind={true}
+          rewind={false}
           rewindWithAnimation={false}
           rtl={false}
           shouldResetAutoplay
@@ -78,7 +80,7 @@ const CarouselImage = ({
         >
           {images.map((image) => {
             return (
-              <Image
+              <img
                 alt={image.src}
                 key={image.src}
                 src={image.src}

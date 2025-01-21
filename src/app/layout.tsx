@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` antialiased`}>
+      <body className={`antialiased`}>
         <div className="flex">
           <div className="w-[16vw] h-[100vh] bg-[#244178]">
             <div className="flex flex-col my-5 justify-center items-center">
@@ -52,7 +52,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <div className="w-[84vw] overflow-scroll"> {children}</div>
+          <div className="w-[84vw] overflow-y-scroll"> {children}</div>
         </div>
       </body>
     </html>
