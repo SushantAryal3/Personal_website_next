@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import * as THREE from "three";
 import React from "react";
@@ -8,7 +8,7 @@ import Nebula from "@/component/Earth/Nebula";
 import Starfield from "@/component/Earth/Starfield";
 import EarthMaterial from "@/component/Earth/EarthMaterial";
 import AtmosphereMesh from "@/component/Earth/AtmosphereMesh";
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 import { useState, useEffect } from "react";
 
 const sunDirection = new THREE.Vector3(1, 0, 0);
@@ -72,7 +72,7 @@ function App() {
           className="text-2xl text-center"
           style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
         >
-          <Typewriter
+          {/* <Typewriter
             options={{
               strings: [
                 "Grad Student",
@@ -84,7 +84,7 @@ function App() {
               loop: true,
               deleteSpeed: 1,
             }}
-          />
+          /> */}
         </div>
       </div>
       <div className="h-[100vh] bg-black z-20">
