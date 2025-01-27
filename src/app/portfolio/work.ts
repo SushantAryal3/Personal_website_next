@@ -39,6 +39,19 @@ import immigration from "./photos/Descriptive_statistics/1980_Migration.png";
 import immigration2 from "./photos/Descriptive_statistics/2000_Migration.png";
 import immigration3 from "./photos/Descriptive_statistics/2020_Migration.png";
 import lidar from "./photos/3DModel/lidar.jpg";
+import cityYatri1 from "./photos/City Yatri/Bus.jpg";
+import cityYatri2 from "./photos/City Yatri/Bus1.jpg";
+import cityYatri3 from "./photos/City Yatri/CityYatri3.webp";
+import DealMaps1 from "./photos/DealMap/Deals.jpg";
+import DealMaps2 from "./photos/DealMap/Deals2.jpg";
+import DealMaps3 from "./photos/DealMap/Deals3.webp";
+import Ecoapp1 from "./photos/Park/Eco1.webp";
+import Ecoapp2 from "./photos/Park/Eco2.webp";
+import Ecoapp3 from "./photos/Park/Eco3.webp";
+import EWS1 from "./photos/EWS/EWS1.png";
+import EWS2 from "./photos/EWS/EWS2.png";
+import EWS3 from "./photos/EWS/Login.png";
+
 export type ProjectDetailtemp = {
   id: string;
   topic?: string;
@@ -61,7 +74,7 @@ export type ProjectDetailtemp = {
 
 export const AcademicprojectDetail: ProjectDetailtemp[] = [
   {
-    id: "rs-1",
+    id: "ac-1",
     topic:
       "Land Surface Temperature (LST) and Snow cover visualization for Mountainous District of Nepal",
     name: "Remote sensing with GEE",
@@ -94,7 +107,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
     singleImage: true,
   },
   {
-    id: "dsdc",
+    id: "ac-2",
     topic:
       "Descriptive statistics and Data Classification and Visualization of world demographic",
     name: "Descriptive statistic and data classification",
@@ -113,7 +126,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
     imageOnly: true,
   },
   {
-    id: "rs3",
+    id: "ac-3",
     name: " Map Design",
     topic: "Map Design",
     tools: "QGIS",
@@ -132,7 +145,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
       "Cartography and map design are key for presenting spatial data clearly and accurately. A well-crafted map helps users interpret geographical information and make informed decisions.",
   },
   {
-    id: "es2",
+    id: "ac-4",
     name: "Spatial Urban Data and Geoprocessing",
     topic: "Spatial Analysis of Urban Data (Leuven)",
     tools: "QGIS, Copernicus Urban Atlas Data",
@@ -160,7 +173,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
       "The analysis of European Urban Atlas data reveals patterns of urban accessibility and sprawl, offering insights into land use and population distribution. ",
   },
   {
-    id: "sds4",
+    id: "ac-5",
     name: "Spatial Data Quality and Data Aggregation",
     tools: "QGIS",
     data: "Crime Data of Estonia 2012, Administrative unit Estonia, Road network Estonia, City Name of Estonia",
@@ -183,7 +196,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
   },
 
   {
-    id: "sds1",
+    id: "ac-6",
     name: "Climate Data",
     tools: "QGIS",
     data: "Temperature Data, Precipitation Data, Elevation Data, Geographical Data, Solar Radiation Data",
@@ -215,7 +228,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
       "Analyzing climate data reveals patterns and relationships, enhancing understanding of climatic conditions and making insights more accessible.",
   },
   {
-    id: "sb-3",
+    id: "ac-7",
     name: "suitability analysis",
     tools: "QGIS, ArcGIS, ",
     data: "Digital Elevation Model (DEM), Slope, Stream Order, TWI (Topographic Wetness Index), Road Network, Population density, LandUse and LandCover",
@@ -248,7 +261,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
     shortDescription: "",
   },
   {
-    id: "sd5",
+    id: "ac-8",
     name: "3D Model of Tartu City Center",
     topic: "3D Model of Tartu City Center",
     data: "LiDAR Data, Orthophoto, DSM (Digital Surface Model), DHM (Digital Height Model)",
@@ -268,7 +281,7 @@ export const AcademicprojectDetail: ProjectDetailtemp[] = [
     imageOnly: true,
   },
   {
-    id: "sd6",
+    id: "ac-9",
     tools: "ArcGIS, 3D Extrusion Tools",
     topic: "Landscape modelling of Estonia Topography",
     data: "LiDar Data, ETAK Data",
@@ -294,13 +307,46 @@ export const ProfessionalWorkDetail: ProjectDetailtemp[] = [
     id: "pw-1",
     name: "IOM Migration movement visualization between India and Nepal",
     src: [IOM],
+    link: "https://iom-dtm.naxa.com.np/",
     description: [""],
     shortDescription: "",
   },
   {
     id: "pw-2",
-    name: "Plant Sat",
+    name: "PlantSat",
     src: [PlantSat],
+    link: "https://beema.plantsat.com/login",
+    description: [""],
+    shortDescription: "",
+  },
+  {
+    id: "pw-3",
+    name: "City Yatri",
+    src: [cityYatri1, cityYatri2, cityYatri3],
+    description: [""],
+    link: "https://play.google.com/store/apps/details?id=com.agtech.city_yatra&hl=en",
+    shortDescription: "",
+  },
+  {
+    id: "pw-4",
+    name: "Eco App",
+    src: [Ecoapp1, Ecoapp2, Ecoapp3],
+    description: [""],
+    link: "https://play.google.com/store/apps/details?id=com.agtech.ecoapp&hl=en",
+    shortDescription: "",
+  },
+  {
+    id: "pw-4",
+    name: "DealMap",
+    src: [DealMaps1, DealMaps2, DealMaps3],
+    link: "https://play.google.com/store/apps/details?id=com.agtech.dealsnepal&hl=en",
+    description: [""],
+    shortDescription: "",
+  },
+  {
+    id: "pw-5",
+    name: "EWS",
+    src: [EWS1, EWS2, EWS3],
     description: [""],
     shortDescription: "",
   },

@@ -1,15 +1,16 @@
 "use client";
 
 import * as THREE from "three";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Nebula from "@/component/Earth/Nebula";
 import Starfield from "@/component/Earth/Starfield";
 import EarthMaterial from "@/component/Earth/EarthMaterial";
 import AtmosphereMesh from "@/component/Earth/AtmosphereMesh";
-// import Typewriter from "typewriter-effect";
-import { useState, useEffect } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Link from "next/link";
 
 const sunDirection = new THREE.Vector3(1, 0, 0);
 
@@ -19,11 +20,13 @@ function Earth() {
   useFrame(() => {
     ref.current.rotation.y += 0.001;
   });
+
   const axialTilt = (23.4 * Math.PI) / 180;
+
   return (
     <group rotation-z={axialTilt}>
-      <mesh ref={ref}>
-        <icosahedronGeometry args={[2.7, 64]} />
+      <mesh ref={ref} scale={[0.8, 0.85, 0.8]}>
+        <icosahedronGeometry args={[7, 64]} />
         <EarthMaterial sunDirection={sunDirection} />
         <AtmosphereMesh />
       </mesh>
@@ -41,64 +44,82 @@ function App() {
     "welkom bij",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
     }, 4000);
     return () => clearInterval(interval);
   }, [words.length]);
+
   return (
     <>
-      <div className="absolute top-[35vh] left-[47vw] text-white z-30">
-        <div
-          className="text-xl text-center"
-          style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
-        >
-          {words[currentIndex]}
+      <div
+        className=" bg-white dark:bg-black z-20 overflow-y-scroll"
+        style={{ scrollBehavior: "smooth" }}
+      >
+        <div className="flex">
+          <div className="relative w-[40vw]">
+            <div className="absolute z-10 w-full h-[100vh] flex justify-center items-center">
+              <div className="sparkling-star"></div>
+              <div className="sparkling-star"></div>
+              <div className="sparkling-star"></div>
+              <div className="sparkling-star"></div>
+              <div className="sparkling-star"></div>
+              <div className="sparkling-star"></div>
+              <div className="absolute shooting-star animate-[shooting-star_2s_linear_infinite]"></div>
+            </div>
+            <div className="z-20 h-[100vh] text-white flex flex-col justify-center items-center">
+              <div
+                className="text-xl text-center text-white"
+                style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
+              >
+                {words[currentIndex]}
+              </div>
+              <div
+                className="text-6xl font-serif text-center text-white"
+                style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
+              >
+                My eportfolio
+              </div>
+              <div
+                className="text-8xl font-serif mt-10 text-white"
+                style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
+              >
+                Sushant Aryal
+              </div>
+              <div className="h-[30px] text-2xl mt-4">
+                <Typewriter
+                  words={[
+                    "Master Student",
+                    "Geomatics Engineer",
+                    "Web-GIS Developer",
+                    "Spatial Analyst",
+                  ]}
+                  loop={10}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={200}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="h-[100vh] w-[60vw]">
+            <Canvas
+              camera={{ position: [0, 0.2, 10] }}
+              gl={{ toneMapping: THREE.NoToneMapping }}
+            >
+              <Earth />
+              <hemisphereLight args={[0xffffff, 0x000000, 5.0]} />
+              <directionalLight position={[x, y, z]} />
+              <Nebula />
+              <Starfield />
+              <OrbitControls enableZoom={false} />
+            </Canvas>
+          </div>
         </div>
-        <div
-          className="text-4xl font-serif text-center"
-          style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
-        >
-          My eportfolio
-        </div>
-        <div
-          className="text-7xl font-serif mt-10"
-          style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
-        >
-          Sushant Aryal
-        </div>{" "}
-        <div
-          className="text-2xl text-center"
-          style={{ textShadow: "2px 2px 4px rgba(1, 1, 0, 0.8)" }}
-        >
-          {/* <Typewriter
-            options={{
-              strings: [
-                "Grad Student",
-                "Geomatics Engineer",
-                "Web-GIS Developer",
-                "Spatial Analyst",
-              ],
-              autoStart: true,
-              loop: true,
-              deleteSpeed: 1,
-            }}
-          /> */}
-        </div>
-      </div>
-      <div className="h-[100vh] bg-black z-20">
-        <Canvas
-          camera={{ position: [0, 0.2, 5] }}
-          gl={{ toneMapping: THREE.NoToneMapping }}
-        >
-          <Earth />
-          <hemisphereLight args={[0xffffff, 0x000000, 3.0]} />
-          <directionalLight position={[x, y, z]} />
-          <Nebula />
-          <Starfield />
-          <OrbitControls />
-        </Canvas>
       </div>
     </>
   );

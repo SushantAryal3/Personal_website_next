@@ -4,13 +4,7 @@ import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const CarouselImage = ({
-  images,
-  discription,
-}: {
-  images: StaticImageData[];
-  discription: string[];
-}) => {
+const CarouselImage = ({ images }: { images: StaticImageData[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   console.log(currentIndex);
   console.log(images.length);
@@ -95,13 +89,6 @@ const CarouselImage = ({
           })}
         </Carousel>
       </div>
-      {discription[currentIndex] && (
-        <div className=" w-[50vw] mt-3 mx-[17vw] p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            {discription[currentIndex]}
-          </p>
-        </div>
-      )}
     </>
   );
 };

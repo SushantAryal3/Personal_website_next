@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { AcademicprojectDetail, ProjectDetailtemp } from "../work";
-// import Carousel from "@/component/Caurosel/caurosel";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { AcademicprojectDetail, ProfessionalWorkDetail } from "../work";
 import Image from "next/image";
 import Slider from "@/component/ImageSlider/slider";
-// import { light } from "@mui/material/styles/createPalette";
 
 export default async function PhotoPage({
   params,
@@ -12,22 +9,13 @@ export default async function PhotoPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project: ProjectDetailtemp = AcademicprojectDetail.find(
-    (p: any) => p.id === id
-  )!;
+  const combine = [...AcademicprojectDetail, ...ProfessionalWorkDetail];
+  const project = combine.find((p: any) => p.id === id)!;
 
   return (
-    <div className="pb-20">
-      <div className="px-5 pb-4 pt-4 mb-8 flex justify-between items-center shadow-md sticky top-0 bg-white z-10 ">
-        <Link key={id} href={`/portfolio/`} className="group relative">
-          <ArrowBackIosIcon />
-        </Link>
-        <div className="font-[Raleway] text-3xl relative bg-[#fafafa]">
-          {project.name}
-        </div>
-      </div>
-      <div className="w-[65vw] mx-auto">
-        <div className="font-[Raleway] text-3xl relative bg-[#fafafa] mb-5">
+    <div className="mt-6">
+      <div className="w-[82vw] mx-auto">
+        <div className="font-[Raleway] text-3xl relative mb-5">
           {project.topic}
         </div>
         {project?.singleImage && (
