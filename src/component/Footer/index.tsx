@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div>
       {!isHome && (
-        <div className="text-center my-10">
+        <div className="text-center my-5 md:my-10">
           <div className="w-full flex gap-2 justify-center items-center mb-4">
             <Link href="/" className="flex items-center">
               <span className="text-lg text-black">Home</span>
@@ -20,8 +20,9 @@ const Footer = () => {
               <span className="text-lg text-black">Contact</span>
             </Link>
           </div>
-
-          <div>© Copyright 2025. Proudly built and designed by me.</div>
+          <div className="px-4">
+            © Copyright 2025. Proudly built and designed by me.
+          </div>
         </div>
       )}
     </div>

@@ -19,7 +19,7 @@ const CarouselImage = ({ images }: { images: StaticImageData[] }) => {
           paddingBottom: "30px",
           position: "relative",
         }}
-        className=" w-[50vw] mx-[17vw]"
+        className=" mt-6 w-[90vw] mx-[0] md:w-[80vw]"
       >
         <Carousel
           additionalTransfrom={0}
@@ -78,12 +78,7 @@ const CarouselImage = ({ images }: { images: StaticImageData[] }) => {
                 alt={image.src}
                 key={image.src}
                 src={image.src}
-                style={{
-                  display: "block",
-                  height: "100%",
-                  margin: "auto",
-                  width: "100%",
-                }}
+                className="block h-auto m-auto w-[100%] md:w-[70%]"
               />
             );
           })}

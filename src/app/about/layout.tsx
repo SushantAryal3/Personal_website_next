@@ -7,7 +7,9 @@ export default function ComplexDashboardLayout({
 }) {
   return (
     <>
-      <div className=" overflow-scroll w-[82vw] mx-auto">{children}</div>
+      <div className=" overflow-scroll w-[80vw] md:w-[90vw] mx-auto">
+        {children}
+      </div>
     </>
   );
 }

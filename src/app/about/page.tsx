@@ -4,14 +4,19 @@ import Profile from "../../../public/photo.png";
 import Image from "next/image";
 import { Skills } from "./const";
 import { achivements } from "./const";
+import Sushant from "./svg/sushant.png";
 const About = () => {
   return (
-    <div className="pt-10">
-      <div className=" mx-auto">
+    <div className="pt-5 md:pt-10">
+      <div className="mx-auto">
         <div className="mb-6">
-          <div className="text-5xl relative">
+          <div className="text-5xl relative hidden md:block">
             A little About me
             <div className="absolute -bottom-3 left-0 w-52 h-[3px] bg-[#1a9edb]"></div>
+          </div>
+          <div className="text-5xl relative block md:hidden">
+            About me
+            <div className="absolute -bottom-3 left-0 w-32 h-[3px] bg-[#1a9edb]"></div>
           </div>
           <p className="text-gray-700 leading-relaxed mt-10 text-justify">
             I am a GIS professional and student with a passion for applying
@@ -37,20 +42,27 @@ const About = () => {
             learning) applications in the geospatial domain.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-1/3 p-6 flex justify-center items-center">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="max-w-fit md:flex justify-center items-center hidden">
             <Image
-              src={Profile}
+              src={Sushant}
               alt="Profile"
-              className="rounded-full w-40 h-40 object-cover md:w-72 md:h-72"
+              className="rounded-full w-40 h-40 object-cover object-top md:w-72 md:h-72"
             />
           </div>
 
-          <div className="w-full md:w-2/3 p-6">
+          <div className="w-full md:w-2/3 mx-auto">
             <h1 className="text-2xl font-bold text-blue-600 mb-4">
               Personal Info
             </h1>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="w-full md:w-1/3 p-6 md:hidden flex justify-center items-center">
+              <Image
+                src={Sushant}
+                alt="Profile"
+                className="rounded-full w-40 h-40 object-cover object-top md:w-72 md:h-72"
+              />
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-5 flex flex-col gap-4">
               <div>
                 <span className="font-semibold">Date of Birth:</span> August 4,
                 2000
@@ -96,7 +108,7 @@ const About = () => {
             applications throughout my academic and professional experience.
           </div>
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center">
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center">
               {Skills.map((skill) => (
                 <div key={skill.name} className="flex flex-col items-center">
                   <Image
@@ -113,21 +125,23 @@ const About = () => {
           Achievements
           <div className="absolute -bottom-3 left-0 w-36 h-[3px] bg-[#1a9edb]"></div>
         </div>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-5 md:gap-10">
           {achivements.map((achieve) => {
             return (
-              <div className="flex gap-10">
-                <Image
-                  src={achieve.icon}
-                  alt={achieve.name}
-                  className="h-40 w-40"
-                />
-                <div className="flex flex-col">
-                  <div className="font-bold text-lg">{achieve.name}</div>
-                  <div className="mb-4">{achieve.short_description}</div>
-                  <div>{achieve.description}</div>
+              <>
+                <div className="flex gap-10">
+                  <Image
+                    src={achieve.icon}
+                    alt={achieve.name}
+                    className="h-20 w-20 md:h-40 md:w-40"
+                  />
+                  <div className="flex flex-col">
+                    <div className="font-bold text-lg">{achieve.name}</div>
+                    <div className="hidden md:block">{achieve.description}</div>
+                  </div>
                 </div>
-              </div>
+                <div className="md:hidden">{achieve.description}</div>
+              </>
             );
           })}
         </div>

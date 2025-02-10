@@ -9,12 +9,12 @@ const Portfolio = () => {
   const [selectedTab, changeSelectedTab] = useState<string>("All");
   const combine = [...AcademicprojectDetail, ...ProfessionalWorkDetail];
   return (
-    <div className="mt-10">
+    <div className="mt-5 md:mt-10">
       <div className="font-[Raleway] text-5xl relative">
         Portfolio
         <div className="absolute -bottom-3 left-0 w-24 h-[3px] bg-[#1a9edb]"></div>
       </div>
-      <div className="mt-12">
+      <div className="mt-8 md:mt-12">
         I have worked on various projects involving spatial analysis, raster
         analysis, GIS development and more, both academically and
         professionally.
@@ -47,7 +47,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
         {selectedTab == "Academic" &&
           AcademicprojectDetail.map(({ id, src, name, shortDescription }) => (
             <Link key={id} href={`/portfolio/${id}`} className="group relative">

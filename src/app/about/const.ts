@@ -61,7 +61,7 @@ export const country = [
 export const achivements = [
   {
     name: "Erasmus Mundus Joint Master Degree (EMJMD)",
-    short_description: "GEM Intake 2023",
+    short_description: "GEM Intake 2024",
     description:
       "Partner Country Erasmus+ scholarship for the MSc degree programme in Geo-Information Science and Earth Observation for Environmental Modelling and Management (GEM) in Track 2: Land Use Systems.",
     icon: GEM,
