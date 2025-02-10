@@ -25,7 +25,7 @@ function getSprites({
   hue = 0.65,
   numSprites = 8,
   opacity = 0.2,
-  path = "./rad-grad.png",
+  path = "",
   radius = 10,
   sat = 0.5,
   size = 24,

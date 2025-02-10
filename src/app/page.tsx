@@ -9,6 +9,8 @@ import Starfield from "@/component/Earth/Starfield";
 import EarthMaterial from "@/component/Earth/EarthMaterial";
 import AtmosphereMesh from "@/component/Earth/AtmosphereMesh";
 import { Typewriter } from "react-simple-typewriter";
+import Image from "next/image";
+import UFO from "@/component/Animation/UFO";
 
 const sunDirection = new THREE.Vector3(1, 0, 0);
 
@@ -69,6 +71,7 @@ function App() {
           <div className="sparkling-star"></div>
           <div className="absolute shooting-star animate-[shooting-star_2s_linear_infinite]"></div>
         </div>
+        <UFO />
         <div className=" h-[100vh] flex flex-col justify-center items-center">
           <div>
             <div

@@ -5,6 +5,11 @@ import InstagramIcon from "@/component/Icons/Instagra";
 import LinkedinIcon from "@/component/Icons/Linkedin";
 import Map from "@/component/Map/map";
 import React from "react";
+import dynamic from "next/dynamic";
+
+const MyAwesomeMap = dynamic(() => import("../../component/Map/map"), {
+  ssr: false,
+});
 
 const Contact = () => {
   return (
@@ -97,7 +102,7 @@ const Contact = () => {
           </ul>
         </div>
         <div>
-          <Map />
+          <MyAwesomeMap />
         </div>
       </div>
     </div>
