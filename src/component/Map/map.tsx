@@ -16,7 +16,7 @@ const Map = () => {
       <MapContainer
         center={[58.38248763373054, 26.731632988168144]}
         zoom={15}
-        className="h-[30vh] w-[30vw]"
+        className="h-[40vh] w-[100vw] md:h-[30vh] md:w-[30vw]"
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker

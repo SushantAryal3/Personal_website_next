@@ -14,7 +14,7 @@ const MyAwesomeMap = dynamic(() => import("../../component/Map/map"), {
 const Contact = () => {
   return (
     <div className="mt-6 max-w-6xl max-lg:max-w-3xl mx-auto rounded-lg">
-      <div className="grid lg:grid-cols-2 items-center gap-14 sm:p-8 p-4">
+      <div className="lg:grid lg:grid-cols-2 items-center gap-14 sm:p-8 p-4">
         <div>
           <h1 className="text-4xl font-bold">Let's get in Touch</h1>
           <ul className="mt-12 space-y-8">

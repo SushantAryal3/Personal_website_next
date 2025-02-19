@@ -71,7 +71,6 @@ function App() {
           <div className="sparkling-star"></div>
           <div className="absolute shooting-star animate-[shooting-star_2s_linear_infinite]"></div>
         </div>
-        <UFO />
         <div className=" h-[100vh] flex flex-col justify-center items-center">
           <div>
             <div
