@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="bg-black z-20 overflow-hidden h-screen w-screen flex">
       {/* Left Content */}
-      <div className="relative md:hidden w-[100vw] xl:w-[40vw] xl:flex h-full lg:hidden justify-center items-center text-white">
+      <div className="relative md:hidden w-[100vw] xl:w-[40vw] xl:flex px-4 h-full lg:hidden justify-center items-center text-white">
         <div className="absolute z-10 w-full h-[100vh] flex justify-center items-center">
           <div className="sparkling-star"></div>
           <div className="sparkling-star"></div>
