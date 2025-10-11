@@ -4,7 +4,7 @@ import { certificate } from "./constant/const";
 import React from "react";
 const Resume = () => {
   const handleDownload = () => {
-    const imageUrl = "https://www.aryalsushant.com.np/Sushant_CV_Short.pdf";
+    const imageUrl = "https://www.aryalsushant.com.np/sushant_cv.pdf";
     const link = document.createElement("a");
     link.href = imageUrl;
     link.setAttribute("download", "Sushant_CV.pdf"); // specify the download file name
@@ -65,7 +65,7 @@ const Resume = () => {
         Geospatial AI Internship
         <div className="italic md:hidden">(May,2025 - August, 2025)</div>
         <div className="flex justify-between items-center mt-1 italic">
-          <div>Naxa Pvt. Ltd, Nepal</div>
+          <div>Estonian Land and Spatial Development Board, Estonia</div>
           <div className="hidden md:block text-base">
             May,2025 - August, 2025
           </div>
@@ -73,7 +73,7 @@ const Resume = () => {
       </div>
       <div className="mt-4 text-lg">
         Web Developer
-        <div className="italic md:hidden">(August, 2023 - July,2024)</div>
+        <div className="italic md:hidden">(January, 2024 - July,2024)</div>
         <div className="flex justify-between items-center mt-1 italic">
           <div>
             <div>Seed Innovation Private Limited</div>
