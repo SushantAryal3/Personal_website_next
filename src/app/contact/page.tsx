@@ -52,7 +52,7 @@ const Contact = () => {
                 ></path>
               </svg>
               <a href="javascript:void(0)" className="ml-4">
-                +372 56054385
+                +32 496026557
               </a>
             </li>
             <li className="flex items-center">
@@ -73,7 +73,7 @@ const Contact = () => {
                 ></path>
               </svg>
               <a href="javascript:void(0)" className="ml-4">
-                Raatuse-22, Tartu, Estonia
+                Louvain la Neuve, Belgium
               </a>
             </li>
           </ul>

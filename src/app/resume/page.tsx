@@ -62,23 +62,38 @@ const Resume = () => {
       <div className=" mt-10 text-2xl ">Experience</div>
       <hr />
       <div className="mt-2 text-lg">
-        Web-GIS developer Internship
-        <div className="italic md:hidden">(March,2023 - April, 2023)</div>
+        Geospatial AI Internship
+        <div className="italic md:hidden">(May,2025 - August, 2025)</div>
         <div className="flex justify-between items-center mt-1 italic">
           <div>Naxa Pvt. Ltd, Nepal</div>
-          <div className="hidden md:block">March,2023 - April, 2023</div>
+          <div className="hidden md:block text-base">
+            May,2025 - August, 2025
+          </div>
         </div>
       </div>
       <div className="mt-4 text-lg">
         Web Developer
         <div className="italic md:hidden">(August, 2023 - July,2024)</div>
-      </div>
-      <div className="flex justify-between items-center mt-1 italic">
-        <div>
-          <div>Seed Innovation Private Limited</div>
+        <div className="flex justify-between items-center mt-1 italic">
+          <div>
+            <div>Seed Innovation Private Limited</div>
+          </div>
+          <div className="hidden md:block text-base">
+            January, 2024 - July,2024
+          </div>
         </div>
-        <div className="hidden md:block">January, 2024 - July,2024</div>
       </div>
+      <div className="mt-4 text-lg">
+        Web-GIS developer Internship
+        <div className="italic md:hidden">(March,2023 - April, 2023)</div>
+        <div className="flex justify-between items-center mt-1 italic">
+          <div>Naxa Pvt. Ltd, Nepal</div>
+          <div className="hidden md:block text-base">
+            March,2023 - April, 2023
+          </div>
+        </div>
+      </div>
+
       <div className=" py-2 mt-5 md:mt-10 text-2xl ">
         Certificates, Workshops & Extra-Curricular Activities
       </div>

@@ -14,13 +14,13 @@ const Map = () => {
   return (
     <div>
       <MapContainer
-        center={[58.38248763373054, 26.731632988168144]}
+        center={[50.66775858531117, 4.614729131764309]}
         zoom={15}
         className="h-[40vh] w-[100vw] md:h-[30vh] md:w-[30vw]"
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker
-          position={[58.38248763373054, 26.731632988168144]}
+          position={[50.66775858531117, 4.614729131764309]}
           icon={customIcon}
         >
           <Popup>University of Tartu</Popup>
