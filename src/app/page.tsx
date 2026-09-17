@@ -180,7 +180,7 @@ function App() {
       <div id="about" className="scroll-mt-[7vh]">
         <About />
       </div>
-      <div id="resume" className="scroll-mt-[7vh]">
+      {/* <div id="resume" className="scroll-mt-[7vh]">
         <Resume />
       </div>
       <div id="portfolio" className="scroll-mt-[7vh]">
@@ -191,7 +191,7 @@ function App() {
       </div>
       <div id="contact" className="scroll-mt-[7vh]">
         <Contact />
-      </div>
+      </div> */}
     </>
   );
 }
