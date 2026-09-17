@@ -1,7 +1,8 @@
 export const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Resume", href: "/resume" },
-  { name: "Contact", href: "/contact" },
+  { name: "HOME", href: "#home", duration: 800 },
+  { name: "ABOUT", href: "#about", duration: 1800 },
+  { name: "PORTFOLIO", href: "#portfolio", duration: 900 },
+  { name: "RESUME", href: "#resume", duration: 900 },
+  { name: "PUBLICATION", href: "#publication", duration: 900 },
+  { name: "CONTACT", href: "#contact", duration: 500 },
 ];

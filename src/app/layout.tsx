@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavigationBar from "@/component/NavBar";
+import localFont from "next/font/local";
 import Footer from "@/component/Footer";
+
+const spaceGrotesk = localFont({
+  src: "../../public/font/SpaceGrotesk-VariableFont_wght.ttf",
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Sushant Aryal",
@@ -14,10 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={spaceGrotesk.variable}>
       <body className={`antialiased`}>
-        <NavigationBar />
-        <div className="w-[100vw] h-[100vh] overflow-y-scroll">
+        <div className="overflow-y-scroll">
           {children}
           <Footer />
         </div>

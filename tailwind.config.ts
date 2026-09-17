@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-space-grotesk)", "sans-serif"],
+      },
       animation: {
         "bounce-left": "bounceLeft 1s infinite",
         flip: "flip 6s infinite steps(2, end)",

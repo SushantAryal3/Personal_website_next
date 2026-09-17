@@ -18,6 +18,15 @@ const eslintConfig = [
       "@typescript-eslint/no-redeclare": "off",
     },
   },
+  {
+    files: ["**/*.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "warn", // catches unused imports (e.g. leftover usePathname)
+      "react/jsx-no-undef": "error", // catches malformed/broken JSX like unmatched tags
+      "react/self-closing-comp": "warn", // flags e.g. <div></div> that should be <div />
+      "@typescript-eslint/no-explicit-any": "off", // relax if you use `any` intentionally sometimes
+    },
+  },
 ];
 
 export default eslintConfig;
