@@ -4,6 +4,7 @@ import NavigationBar from "@/component/NavBar";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import About from "@/component/About/about";
+import Experience from "@/component/Experience/experience";
 import Resume from "@/component/Resume/resume";
 import Portfolio from "@/component/Portfolio/portfolio";
 import Contact from "@/component/Contact/contact";
@@ -115,62 +116,61 @@ function App() {
               ref={(el) => {
                 cellRefs.current[i] = el;
               }}
-              className="bg-[#f4f1ea] opacity-0"
+              className="bg-[#f2e9e4] opacity-0"
             />
           ))}
         </div>
-        <div
-          id="home-mid"
-          className="absolute top-1/2 left-0 w-full h-px pointer-events-none"
-          aria-hidden="true"
-        />
+      <div
+        id="home-mid"
+        className="absolute top-[12vh] left-0 w-full h-px pointer-events-none"
+        aria-hidden="true"
+      />
         <div className="absolute inset-0 z-10 pointer-events-none">
           <motion.div
-            className="absolute top-1/2 left-[20%] w-[70vw] h-px bg-white/25"
+            className="absolute top-[80vh] left-[10%] w-[82vw] sm:top-1/2 sm:w-[82vw] h-px bg-white/25"
             style={{ transformOrigin: "center" }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           />
           <motion.div
-            className="absolute left-1/2 top-[20%] w-px h-[70vh] translate-y-1/2 bg-white/25"
+            className="absolute invisible sm:visible sm:left-1/2 sm:top-[20%] w-px sm:h-[70vh] sm:translate-y-1/2 bg-white/25"
             style={{ transformOrigin: "bottom" }}
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
           />
           <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4"
+            className="absolute top-[80vh] left-1/2 sm:top-1/2 -translate-x-1/2 sm:-translate-y-1/4"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 1.1 }}
           >
             <div className="w-[10vw] h-px bg-white/70 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-            <div className="w-px h-[10vw] bg-white/70 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           </motion.div>
         </div>
 
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute left-[6%] top-[65%] overflow-hidden">
+          <div className="absolute left-1/2 -translate-x-1/2 top-[70%] sm:left-[14%] sm:translate-x-0 sm:top-[53%] md:top-[53%] md:left-[10%] lg:left-[8%] lg:top-[54%] xl:left-[15%] xl:top-[55%] xxl:left-[22%] xxl:top-[55%] overflow-hidden">
             <motion.h1
-              className="text-5xl md:text-7xl font-medium text-white leading-none"
+              className="text-4xl sm:text-4xl lg:text-7xl font-medium text-white leading-none"
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              Earth <br />
+              Earth <br className="hidden sm:inline" />
               Observation
             </motion.h1>
           </div>
-          <div className="absolute right-[6%] top-[20%] overflow-hidden">
+          <div className="absolute left-1/2 -translate-x-1/2 top-[83%] sm:left-auto sm:translate-x-0 sm:top-[34%] sm:right-[12%] md:top-[35%] md:right-[8%] lg:top-[30%] lg:right-[4%] xl:top-[35%] xl:right-[11%] xxl:right-[18%] xxl:top-[30%] overflow-hidden">
             <motion.h1
-              className="text-5xl md:text-7xl font-medium text-white leading-none"
+              className="text-4xl sm:text-4xl lg:text-7xl font-medium text-white leading-none"
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              Geospatial
-              <br />
+              Geospatial &nbsp;
+              <br className="hidden sm:inline" />
               Data Science
             </motion.h1>
           </div>
@@ -180,10 +180,13 @@ function App() {
       <div id="about" className="scroll-mt-[7vh]">
         <About />
       </div>
-      {/* <div id="resume" className="scroll-mt-[7vh]">
+      <div id="experience" className="scroll-mt-[7vh]">
+        <Experience />
+      </div>
+      <div id="resume" className="scroll-mt-[7vh]">
         <Resume />
       </div>
-      <div id="portfolio" className="scroll-mt-[7vh]">
+      {/* <div id="portfolio" className="scroll-mt-[7vh]">
         <Portfolio />
       </div>
       <div id="publication" className="scroll-mt-[7vh]">

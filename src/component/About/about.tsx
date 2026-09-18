@@ -1,153 +1,131 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import Profile from "../../../public/photo.png";
 import Image from "next/image";
-import { Skills } from "./const";
-import { achivements } from "./const";
-import Sushant from "./svg/sushant.png";
+import { SkillGroups } from "./const";
+import topo from "./svg/topo.svg";
+
+const GRID_SIZE = 80;
+const gridPattern = `data:image/svg+xml,${encodeURIComponent(
+  `<svg xmlns='http://www.w3.org/2000/svg' width='${GRID_SIZE}' height='${GRID_SIZE}'>
+    <line x1='0' y1='${GRID_SIZE / 2}' x2='${GRID_SIZE}' y2='${GRID_SIZE / 2}' stroke='rgba(120,100,70,0.15)' stroke-width='1'/>
+    <line x1='${GRID_SIZE / 2}' y1='0' x2='${GRID_SIZE / 2}' y2='${GRID_SIZE}' stroke='rgba(120,100,70,0.15)' stroke-width='1'/>
+    <line x1='${GRID_SIZE / 2 - 5}' y1='${GRID_SIZE / 2}' x2='${GRID_SIZE / 2 + 5}' y2='${GRID_SIZE / 2}' stroke='rgba(120,100,70,0.5)' stroke-width='1'/>
+    <line x1='${GRID_SIZE / 2}' y1='${GRID_SIZE / 2 - 5}' x2='${GRID_SIZE / 2}' y2='${GRID_SIZE / 2 + 5}' stroke='rgba(120,100,70,0.5)' stroke-width='1'/>
+  </svg>`
+)}`;
+
 const About = () => {
   return (
-    <div className=" overflow-scroll w-[80vw] md:w-[90vw] mx-auto">
-    <div className="pt-5 md:pt-10">
-      <div className="mx-auto">
-        <div className="mb-6">
-          <div className="text-5xl relative hidden md:block">
-            A little About me
-            <div className="absolute -bottom-3 left-0 w-52 h-[3px] bg-[#1a9edb]"></div>
-          </div>
-          <div className="text-5xl relative block md:hidden">
-            About me
-            <div className="absolute -bottom-3 left-0 w-32 h-[3px] bg-[#1a9edb]"></div>
-          </div>
-          <p className="text-gray-700 leading-relaxed mt-10 text-justify">
-            I am a GIS professional and student with a passion for applying
-            geospatial technology to solve real-world challenges and uncover
-            insights from it. Currently pursuing my master's in Geoinformation
-            Science and Earth Observation for Environmental Modelling and
-            Management at University of Tartu, I bring a unique blend of
-            technical expertise and creative problem-solving to the table.{" "}
-          </p>
-          <p className="text-gray-700 leading-relaxed mt-5 text-justify">
-            My journey began as a WebGIS Developer, where I gained skills in
-            creating interactive maps and dashboards, managing geospatial
-            databases, and working with cutting-edge spatial analysis tools.
-            Now, I aim to deepen my expertise in remote sensing, Earth
-            observation, and data visualization to tackle challenges like
-            urbanization, agricultural management, and land use optimization.
-          </p>
-          <p className="text-gray-700 leading-relaxed mt-5 text-justify">
-            I graduated from Kathmandu University, Nepal, with a Bachelor's
-            degree in Geomatics Engineering. Expertise in programming, spatial
-            decision support model design, web-based GIS development, and
-            location-based services. Currently exploring machine learning (deep
-            learning) applications in the geospatial domain.
-          </p>
+    <div className="bg-[#f2e9e4] w-full relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("${gridPattern}")`,
+          backgroundSize: `${GRID_SIZE}px ${GRID_SIZE}px`,
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, transparent 120px, black 280px)",
+          maskImage: "linear-gradient(to bottom, transparent, transparent 120px, black 280px)",
+        }}
+      />
+      <div className="w-[90vw] max-w-[80vw] mx-auto pt-5 md:pt-10 relative z-10">
+        <div className="hidden md:block absolute z-20 left-[22%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[40vh] bg-black/15 pointer-events-none" />
+        <div className="hidden md:block w-full h-[2px] bg-black/15 relative mb-10">
+          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-[2px] bg-black" />
+          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-24 bg-black" />
         </div>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="max-w-fit md:flex justify-center items-center hidden">
-            <Image
-              src={Sushant}
-              alt="Profile"
-              className="rounded-full w-40 h-40 object-cover object-top md:w-72 md:h-72"
-            />
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-[22%_1fr] md:gap-0">
+          <div className="relative bg-[#f2e9e4] lg:pl-10 py-2 -my-2 inline-block w-fit md:block md:w-fullhere">
+            <span className="inline-flex items-center gap-2 bg-[#e9dfd0] text-l tracking-widest uppercase px-4 py-2">
+              <span className="w-1.5 h-1.5 bg-black inline-block text-3xl" />
+              ABOUT ME
+            </span>
           </div>
-
-          <div className="w-full md:w-2/3 mx-auto">
-            <h1 className="text-2xl font-bold text-blue-600 mb-4">
-              Personal Info
-            </h1>
-            <div className="w-full md:w-1/3 p-6 md:hidden flex justify-center items-center">
-              <Image
-                src={Sushant}
-                alt="Profile"
-                className="rounded-full w-40 h-40 object-cover object-top md:w-72 md:h-72"
-              />
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-5 flex flex-col gap-4">
-              <div>
-                <span className="font-semibold">Date of Birth:</span> August 4,
-                2000
-              </div>
-              <div>
-                <span className="font-semibold">Phone:</span> +372-56054382
-              </div>
-              <div>
-                <span className="font-semibold">City:</span> Tartu,Estonia
-              </div>
-              <div>
-                <span className="font-semibold">Language:</span> Nepali,
-                English, French (learning)
-              </div>
-              <div>
-                <span className="font-semibold">UNG. Degree:</span> Bachelor's
-                in Geomatics Engineering, 2023
-              </div>
-              <div>
-                <span className="font-semibold">Email:</span>{" "}
-                aryalsushant564@gmail.com
-              </div>
-              <div>
-                <span className="font-semibold">Freelance:</span> Available
-              </div>
-              <div>
-                <span className="font-semibold">Hobbies:</span> Riding, Hiking,
-                Watching Movies, Cooking, Swimming, exercising
-              </div>
-            </div>
+          <div className=" text-lg relative bg-[#f2e9e4] text-gray-700 leading-relaxed space-y-4 md:text-2xl md:pl-6 py-2 -my-2">
+            <p>
+              I'm a geospatial data scientist with an MSc in Geo-Information Science and Earth Observation, 
+              completed jointly between the University of Tartu and UCLouvain, and a background in geomatics engineering from Nepal. 
+              My work spans remote sensing, spatial analysis, and machine learning, from satellite time series to vector and raster GIS data, 
+              with a focus on turning messy, multi-source spatial data into something models and decisions can actually rely on.            </p>
+            <p>
+              My research interest lies in understanding environmental systems and environmental change, particularly through approaches where 
+              observations and process-based machine learning models inform each other. Apart from this, I enjoy full-stack WebGIS development 
+              and building tools that make spatial data usable.
+            </p>
           </div>
-        </div>
-        <div className="font-[Raleway] text-5xl relative mt-9">
-          Skills and Tool
-          <div className="absolute -bottom-3 left-0 w-36 h-[3px] bg-[#1a9edb]"></div>
-        </div>
-        <div className=" mt-5 ">
-          <div className="mb-2 my-10 ">
-            What I've picked up along the way and my ongoing learning
-          </div>
-          <div className="mb-10">
-            I have gained technical proficiency with industry standard
-            applications throughout my academic and professional experience.
-          </div>
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 items-center">
-              {Skills.map((skill) => (
-                <div key={skill.name} className="flex flex-col items-center">
-                  <Image
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="h-16 w-16 object-contain mb-2 grayscale"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="font-[Raleway] text-5xl relative my-9">
-          Achievements
-          <div className="absolute -bottom-3 left-0 w-36 h-[3px] bg-[#1a9edb]"></div>
-        </div>
-        <div className="flex flex-col gap-5 md:gap-10">
-          {achivements.map((achieve) => {
-            return (
-              <>
-                <div className="flex gap-10">
-                  <Image
-                    src={achieve.icon}
-                    alt={achieve.name}
-                    className="h-20 w-20 md:h-40 md:w-40"
-                  />
-                  <div className="flex flex-col">
-                    <div className="font-bold text-lg">{achieve.name}</div>
-                    <div className="hidden md:block">{achieve.description}</div>
-                  </div>
-                </div>
-                <div className="md:hidden">{achieve.description}</div>
-              </>
-            );
-          })}
         </div>
       </div>
-    </div>
+      <div className="relative mt-28">
+        <div className="w-[90vw] max-w-[80vw] mx-auto bg-[#f2e9e4] py-12 md:py-16">
+          <div className="hidden md:block absolute z-20 left-[27.6%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[20vh] bg-black/15 pointer-events-none" />
+        <div className="hidden md:block w-full h-[2px] bg-black/15 relative mb-10">
+          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-[2px] bg-black" />
+          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-24 bg-black" />
+        </div>
+          <div className="flex flex-col gap-6 lg:pl-10 md:grid md:grid-cols-[22%_1fr] md:gap-0">
+            <div className="relative bg-[#f2e9e4] py-2 -my-2 inline-block w-fit md:block md:w-full">
+              <span className="inline-flex items-center gap-2 bg-[#e9dfd0] text-l tracking-widest uppercase px-4 py-2">
+                <span className="w-1.5 h-1.5 bg-black inline-block text-3xl" />
+                MY SKILLSET
+              </span>
+            </div>
+            <div className="text-3xl md:text-5xl relative bg-[#f2e9e4] md:pl-6 py-2 -my-2">
+              Tools I work with
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="w-[90vw] max-w-[80vw] mx-auto pb-16 md:pb-24 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SkillGroups.map((group, index) => (
+            <div
+              key={group.name}
+              className="relative bg-[#e9dfd0] border border-black/15 px-6 py-6 flex flex-col gap-8 overflow-hidden"
+              style={{
+                backgroundImage: `url("${topo.src}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <span className="border border-black/30 text-xs px-2 py-1">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="w-1.5 h-1.5 bg-black/40 inline-block" />
+              </div>
+              <div className="flex flex-col gap-4">
+                <span className="text-xl leading-snug">{group.name}</span>
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  {group.items.map((item) => (
+                    <div key={item.name} className="flex items-center gap-2">
+                      {item.icon ? (
+                        <Image
+                          src={item.icon}
+                          alt={item.name}
+                          className="h-6 w-6 object-contain shrink-0"
+                        />
+                      ) : item.IconComponent ? (
+                        <item.IconComponent className="h-5 w-5 text-black/70 shrink-0" />
+                      ) : (
+                        <span className="h-1.5 w-1.5 bg-black/30 inline-block shrink-0" />
+                      )}
+                      <span className="text-sm text-gray-700">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="relative w-full mt-10 md:mt-16">
+        <Image
+          src="/mountain_filler.png"
+          alt="Mountains"
+          width={2400}
+          height={820}
+          className="w-full h-auto"
+        />
+      </div>
     </div>
   );
 };
