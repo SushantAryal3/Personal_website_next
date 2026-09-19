@@ -32,7 +32,6 @@ const easeInOutCubic = (t: number) =>
 const NavigationBar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
-  const [isDesktop, setIsDesktop] = useState(false);
   const rafRef = useRef<number | null>(null);
 
   const isLight = isMenuOpen || lightSections.has(activeSection);
@@ -75,14 +74,6 @@ const NavigationBar = () => {
     },
     [smoothScrollTo]
   );
-
-  useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1024px)");
-    const updateIsDesktop = () => setIsDesktop(mql.matches);
-    updateIsDesktop();
-    mql.addEventListener("change", updateIsDesktop);
-    return () => mql.removeEventListener("change", updateIsDesktop);
-  }, []);
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -151,11 +142,7 @@ const NavigationBar = () => {
       <nav
         className={`h-[7vh] w-full border-b z-[30] fixed top-0 left-0 transition-colors duration-700 ease-in-out ${theme.border}`}
         style={{
-          backgroundColor: isMenuOpen
-            ? "#f2e9e4"
-            : isDesktop
-            ? sectionBackgrounds[activeSection]
-            : "transparent",
+          backgroundColor: isMenuOpen ? "#f2e9e4" : sectionBackgrounds[activeSection],
         }}
       >
         <div className="h-full flex items-center justify-between w-[90vw] max-w-[80vw] m-auto">

@@ -10,9 +10,12 @@ if (typeof window !== "undefined") {
   setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
 }
 
-const OCEAN_COLOR = "#c9b99e";
-const LAND_COLOR = "#f2e9e4";
+const OCEAN_COLOR = "#bee2ff";
+const LAND_COLOR = "#dde5b4";
+const WORKED_COLOR = "#d6eadf";
 const BORDER_COLOR = "rgba(70,55,40,0.7)";
+
+const workedCountries = Array.from(new Set(experiences.map((exp) => exp.country)));
 
 const baseStyle: StyleSpecification = {
   version: 8,
@@ -20,19 +23,16 @@ const baseStyle: StyleSpecification = {
   layers: [{ id: "ocean", type: "background", paint: { "background-color": OCEAN_COLOR } }],
 };
 
-const markerClass = (active: boolean) =>
-  `block rounded-full border transition-all duration-300 ${
-    active
-      ? "w-3 h-3 bg-[#e0763a] border-[#e0763a]"
-      : "w-1.5 h-1.5 bg-[#f2e9e4] border-black/40"
+const markerClass = (visible: boolean) =>
+  `block w-2 h-2 rounded-full bg-[#2563eb] border border-[#2563eb] transition-opacity duration-300 ${
+    visible ? "opacity-100" : "opacity-0"
   }`;
 
 const Globe = ({ activeIndex }: { activeIndex: number }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MaplibreMap | null>(null);
-  const markersRef = useRef<globalThis.Map<string, { marker: Marker; el: HTMLDivElement }>>(
-    new globalThis.Map()
-  );
+  const markerRef = useRef<Marker | null>(null);
+  const markerElRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -55,10 +55,18 @@ const Globe = ({ activeIndex }: { activeIndex: number }) => {
         style: baseStyle,
         center: [first.lon, first.lat],
         zoom: 2.2,
-        interactive: false,
+        interactive: true,
         attributionControl: false,
       });
       mapRef.current = map;
+
+      // Let visitors drag-rotate the globe, but don't hijack page scroll
+      // or keyboard focus for map-only gestures.
+      map.scrollZoom.disable();
+      map.boxZoom.disable();
+      map.doubleClickZoom.disable();
+      map.keyboard.disable();
+      map.touchZoomRotate.disableRotation();
 
       map.on("error", (e) => {
         // eslint-disable-next-line no-console
@@ -87,7 +95,16 @@ const Globe = ({ activeIndex }: { activeIndex: number }) => {
           id: "land",
           type: "fill",
           source: "world",
-          paint: { "fill-color": LAND_COLOR, "fill-opacity": 1 },
+          paint: {
+            "fill-color": [
+              "match",
+              ["get", "name"],
+              workedCountries,
+              WORKED_COLOR,
+              LAND_COLOR,
+            ],
+            "fill-opacity": 1,
+          },
         });
         map.addLayer({
           id: "land-border",
@@ -96,34 +113,11 @@ const Globe = ({ activeIndex }: { activeIndex: number }) => {
           paint: { "line-color": BORDER_COLOR, "line-width": 1.2 },
         });
 
-        map.once("idle", () => {
-          const rendered = map.queryRenderedFeatures(undefined, { layers: ["land"] });
-          // eslint-disable-next-line no-console
-          console.log(
-            "[Globe] idle - rendered land features in view:",
-            rendered.length,
-            "source loaded:",
-            map.isSourceLoaded("world")
-          );
-        });
-
-        const seen = new Set<string>();
-        experiences.forEach((exp) => {
-          const key = `${exp.lat},${exp.lon}`;
-          if (seen.has(key)) return;
-          seen.add(key);
-
-          const el = document.createElement("div");
-          el.className = markerClass(false);
-          const marker = new Marker({ element: el }).setLngLat([exp.lon, exp.lat]).addTo(map);
-          markersRef.current.set(key, { marker, el });
-        });
-
-        const activeExp = experiences[activeIndex];
-        const activeKey = `${activeExp.lat},${activeExp.lon}`;
-        markersRef.current.forEach(({ el }, key) => {
-          el.className = markerClass(key === activeKey);
-        });
+        const el = document.createElement("div");
+        el.className = markerClass(true);
+        const marker = new Marker({ element: el }).setLngLat([first.lon, first.lat]).addTo(map);
+        markerElRef.current = el;
+        markerRef.current = marker;
       });
     };
 
@@ -134,7 +128,8 @@ const Globe = ({ activeIndex }: { activeIndex: number }) => {
       if (rafId) cancelAnimationFrame(rafId);
       mapRef.current?.remove();
       mapRef.current = null;
-      markersRef.current.clear();
+      markerRef.current = null;
+      markerElRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -142,17 +137,36 @@ const Globe = ({ activeIndex }: { activeIndex: number }) => {
   useEffect(() => {
     const map = mapRef.current;
     const exp = experiences[activeIndex];
-    const activeKey = `${exp.lat},${exp.lon}`;
 
-    markersRef.current.forEach(({ el }, key) => {
-      el.className = markerClass(key === activeKey);
-    });
+    if (markerElRef.current) {
+      markerElRef.current.className = markerClass(false);
+    }
 
     if (!map) return;
-    map.flyTo({ center: [exp.lon, exp.lat], zoom: 3, duration: 1400, essential: true });
+
+    map.once("moveend", () => {
+      markerRef.current?.setLngLat([exp.lon, exp.lat]);
+      if (markerElRef.current) {
+        markerElRef.current.className = markerClass(true);
+      }
+    });
+
+    map.easeTo({ center: [exp.lon, exp.lat], duration: 1400, essential: true });
   }, [activeIndex]);
 
-  return <div ref={containerRef} className="w-full h-full" />;
+  return (
+    <div className="relative w-full h-full">
+      <div ref={containerRef} className="w-full h-full" />
+      <div
+        className="absolute inset-0 pointer-events-none rounded-full"
+        style={{
+          boxShadow: "inset 0 0 55px 18px rgba(40,30,20,0.45)",
+          background:
+            "radial-gradient(circle at 34% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0) 45%)",
+        }}
+      />
+    </div>
+  );
 };
 
 export default Globe;

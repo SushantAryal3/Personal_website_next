@@ -8,14 +8,13 @@ import { experiences } from "./const";
 
 const Globe = dynamic(() => import("./Globe"), { ssr: false });
 
-const GLOBE_SIZE = 290;
-
 const Experience = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
   const [travel, setTravel] = useState(0);
   const entryRefs = useRef<(HTMLDivElement | null)[]>([]);
   const listRef = useRef<HTMLDivElement>(null);
+  const globeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mql = window.matchMedia("(min-width: 768px)");
@@ -28,13 +27,14 @@ const Experience = () => {
   useEffect(() => {
     const computeTravel = () => {
       const listEl = listRef.current;
-      if (!listEl) return;
-      setTravel(Math.max(0, listEl.offsetHeight - GLOBE_SIZE));
+      const globeEl = globeRef.current;
+      if (!listEl || !globeEl) return;
+      setTravel(Math.max(0, listEl.offsetHeight - globeEl.offsetHeight));
     };
     computeTravel();
     window.addEventListener("resize", computeTravel);
     return () => window.removeEventListener("resize", computeTravel);
-  }, []);
+  }, [isDesktop]);
 
   const step = experiences.length > 1 ? travel / (experiences.length - 1) : 0;
 
@@ -56,18 +56,24 @@ const Experience = () => {
   }, []);
 
   return (
-    <div
-      className="relative w-full"
-      style={{
-        backgroundImage: `url("${topo.src}")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundColor: "#f2e9e4",
-      }}
-    >
+    <div className="relative w-full pt-10 bg-[#f2e9e4]">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url("${topo.src}")`,
+          backgroundSize: "500%",
+          backgroundPosition: "right",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.2,
+        }}
+      />
       <div className="relative">
         <div className="w-[90vw] max-w-[80vw] mx-auto bg-[#f2e9e4] py-12 md:py-16">
+          <div className="hidden md:block absolute z-20 left-[27.6%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[20vh] bg-black/15 pointer-events-none" />
+          <div className="hidden md:block w-full h-[2px] bg-black/15 relative mb-10">
+            <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-[2px] bg-black" />
+            <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-20 bg-black" />
+          </div>
           <div className="flex flex-col gap-6 md:grid md:grid-cols-[22%_1fr] md:gap-0">
             <div className="relative bg-[#f2e9e4] py-2 -my-2 inline-block w-fit md:block md:w-full">
               <span className="inline-flex items-center gap-2 bg-[#e9dfd0] text-l tracking-widest uppercase px-4 py-2">
@@ -86,8 +92,8 @@ const Experience = () => {
         <div className="flex flex-col md:flex-row md:gap-10">
           <div className="md:w-[38%] md:shrink-0 mb-6 md:mb-0">
             <motion.div
-              className="md:sticky md:top-[14vh] mx-auto md:mx-0 overflow-hidden rounded-full shrink-0"
-              style={{ width: GLOBE_SIZE, height: GLOBE_SIZE }}
+              ref={globeRef}
+              className="md:sticky md:top-[14vh] mx-auto md:mx-0 overflow-hidden rounded-full shrink-0 w-[350px] h-[350px]  md:w-[270px] md:h-[270px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] shadow-[0_25px_50px_-10px_rgba(70,55,40,0.4)]"
               animate={{ y: isDesktop ? activeIndex * step : 0 }}
               transition={{ type: "spring", stiffness: 120, damping: 22 }}
             >

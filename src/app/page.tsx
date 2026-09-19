@@ -9,6 +9,7 @@ import Resume from "@/component/Resume/resume";
 import Portfolio from "@/component/Portfolio/portfolio";
 import Contact from "@/component/Contact/contact";
 import Publication from "@/component/Publication/publicatoin";
+import Education from "@/component/Education/education";
 
 const CELL_SIZE = 55;
 
@@ -180,15 +181,16 @@ function App() {
       <div id="about" className="scroll-mt-[7vh]">
         <About />
       </div>
+      <div id="education" className="scroll-mt-[7vh]">
+        <Education />
+      </div>
       <div id="experience" className="scroll-mt-[7vh]">
         <Experience />
       </div>
-      <div id="resume" className="scroll-mt-[7vh]">
-        <Resume />
-      </div>
-      {/* <div id="portfolio" className="scroll-mt-[7vh]">
+       {/* <div id="portfolio" className="scroll-mt-[7vh]">
         <Portfolio />
-      </div>
+      </div> */}
+      {/*
       <div id="publication" className="scroll-mt-[7vh]">
         <Publication />
       </div>
