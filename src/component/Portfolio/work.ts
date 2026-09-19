@@ -336,7 +336,7 @@ export const ProfessionalWorkDetail: ProjectDetailtemp[] = [
     shortDescription: "",
   },
   {
-    id: "pw-4",
+    id: "pw-5",
     name: "DealMap",
     src: [DealMaps1, DealMaps2, DealMaps3],
     link: "https://play.google.com/store/apps/details?id=com.agtech.dealsnepal&hl=en",
@@ -344,7 +344,7 @@ export const ProfessionalWorkDetail: ProjectDetailtemp[] = [
     shortDescription: "",
   },
   {
-    id: "pw-5",
+    id: "pw-6",
     name: "EWS",
     src: [EWS1, EWS2, EWS3],
     description: [""],

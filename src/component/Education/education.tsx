@@ -176,7 +176,7 @@ const Education = () => {
           <div className="text-3xl md:text-5xl mt-6">Certifications I&apos;ve earned</div>
           <p className="mt-4 text-gray-700 max-w-2xl mx-auto md:text-lg">
             Short online courses and specializations completed alongside my formal degrees, across
-            web development, data science, and geospatial tools.
+            application development, data science, and geospatial tools.
           </p>
         </div>
 

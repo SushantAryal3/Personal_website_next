@@ -187,16 +187,16 @@ function App() {
       <div id="experience" className="scroll-mt-[7vh]">
         <Experience />
       </div>
-       {/* <div id="portfolio" className="scroll-mt-[7vh]">
+      <div id="portfolio" className="scroll-mt-[7vh]">
         <Portfolio />
-      </div> */}
-      {/*
+      </div>
       <div id="publication" className="scroll-mt-[7vh]">
         <Publication />
       </div>
+      
       <div id="contact" className="scroll-mt-[7vh]">
         <Contact />
-      </div> */}
+      </div>
     </>
   );
 }
