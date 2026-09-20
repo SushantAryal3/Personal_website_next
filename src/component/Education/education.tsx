@@ -27,7 +27,13 @@ const DotGrid = () => (
 const CertCard = ({ cert, index }: { cert: Certification; index: number }) => (
   <div className="w-[60vw] md:w-96 lg:w-[30rem] shrink-0 flex flex-col overflow-hidden rounded-lg border border-black/15 bg-white shadow-sm">
     <div className="relative aspect-[4/3]">
-      <Image src={cert.src} alt={cert.title} fill className="object-cover" />
+      <Image
+        src={cert.src}
+        alt={cert.title}
+        fill
+        sizes="(min-width: 1024px) 30rem, (min-width: 768px) 24rem, 60vw"
+        className="object-cover"
+      />
     </div>
     <a
       href={cert.link}

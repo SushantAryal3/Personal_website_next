@@ -186,12 +186,12 @@ const NavigationBar = () => {
 
       <div
         className={`lg:hidden fixed top-[7vh] left-0 w-full z-[20] border-b overflow-hidden transition-all duration-500 ease-in-out ${theme.border} ${
-          isMenuOpen ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
         style={{ backgroundColor: "#f2e9e4" }}
       >
         <ul
-          className={`flex flex-row flex-nowrap items-center justify-between w-[90vw] max-w-[80vw] m-auto py-4 text-[12px] font-normal overflow-x-auto ${theme.text}`}
+          className={`flex flex-col md:flex-row md:flex-nowrap items-center md:justify-between gap-4 md:gap-0 w-[90vw] max-w-[80vw] m-auto py-4 text-[12px] font-normal md:overflow-x-auto ${theme.text}`}
         >
           {renderLinks()}
         </ul>

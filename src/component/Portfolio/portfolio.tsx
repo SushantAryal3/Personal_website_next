@@ -23,7 +23,7 @@ const ProjectCard = ({
   index: number;
   onOpen: (project: ProjectDetailtemp) => void;
 }) => {
-  const image = project.src[Math.floor(Math.random() * project.src.length)];
+  const image = project.src[0];
   const description = project.shortDescription || project.topic || "";
   const tags = (project.skill_gained || []).slice(0, 3);
 
@@ -38,6 +38,7 @@ const ProjectCard = ({
           alt={project.name}
           src={image}
           fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 80vw"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>

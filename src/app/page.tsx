@@ -163,7 +163,7 @@ function App() {
               Observation
             </motion.h1>
           </div>
-          <div className="absolute left-1/2 -translate-x-1/2 top-[83%] sm:left-auto sm:translate-x-0 sm:top-[34%] sm:right-[12%] md:top-[35%] md:right-[8%] lg:top-[30%] lg:right-[4%] xl:top-[35%] xl:right-[11%] xxl:right-[18%] xxl:top-[30%] overflow-hidden">
+          <div className="absolute left-1/2 -translate-x-1/2 top-[83%] sm:left-auto sm:translate-x-0 sm:top-[34%] sm:right-[12%] md:top-[35%] md:right-[8%] lg:top-[30%] lg:right-[4%] xl:top-[30%] xl:right-[11%] xxl:right-[18%] xxl:top-[30%] overflow-hidden">
             <motion.h1
               className="text-4xl sm:text-4xl lg:text-7xl font-medium text-white leading-none"
               initial={{ y: "110%" }}

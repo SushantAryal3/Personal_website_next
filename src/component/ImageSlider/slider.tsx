@@ -16,7 +16,8 @@ const Slider = ({ image }: { image: Array<StaticImageData> }) => {
           <Image
             className="object-contain rounded-lg"
             src={topImage.src}
-            layout="fill"
+            fill
+            sizes="60vw"
             alt="Top Image"
           />
         </div>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import Footer from "@/component/Footer";
 
 const spaceGrotesk = localFont({
   src: "../../public/font/SpaceGrotesk-VariableFont_wght.ttf",
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body className={`antialiased`}>
         <div className="overflow-y-scroll">
           {children}
-          <Footer />
         </div>
       </body>
     </html>
