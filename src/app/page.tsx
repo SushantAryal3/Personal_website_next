@@ -10,6 +10,7 @@ import Portfolio from "@/component/Portfolio/portfolio";
 import Contact from "@/component/Contact/contact";
 import Publication from "@/component/Publication/publicatoin";
 import Education from "@/component/Education/education";
+import Award from "@/component/Award/award";
 
 const CELL_SIZE = 55;
 
@@ -151,6 +152,35 @@ function App() {
           </motion.div>
         </div>
 
+        <motion.div
+          className="absolute z-0 bottom-[8vh] right-[5%] sm:bottom-[10vh] sm:right-[8%]"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <a
+            href="/Sushant_Aryal_CV.pdf"
+            download="Sushant_Aryal_CV.pdf"
+            className="inline-flex items-center gap-3 bg-black/35 backdrop-blur-[2px] border border-white/40 text-white text-sm sm:text-base tracking-[0.15em] uppercase px-6 py-3.5 sm:px-8 sm:py-4 hover:bg-white hover:text-black transition-colors duration-300"
+          >
+            Download CV
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 3v12" />
+              <path d="M7 10l5 5 5-5" />
+              <path d="M5 20h14" />
+            </svg>
+          </a>
+        </motion.div>
+
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute left-1/2 -translate-x-1/2 top-[70%] sm:left-[14%] sm:translate-x-0 sm:top-[53%] md:top-[53%] md:left-[10%] lg:left-[8%] lg:top-[54%] xl:left-[15%] xl:top-[55%] xxl:left-[22%] xxl:top-[55%] overflow-hidden">
             <motion.h1
@@ -193,7 +223,10 @@ function App() {
       <div id="publication" className="scroll-mt-[7vh]">
         <Publication />
       </div>
-      
+      <div id="award" className="scroll-mt-[7vh]">
+        <Award />
+      </div>
+
       <div id="contact" className="scroll-mt-[7vh]">
         <Contact />
       </div>

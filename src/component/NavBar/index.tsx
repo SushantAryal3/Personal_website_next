@@ -11,6 +11,7 @@ const sectionBackgrounds: Record<string, string> = {
   resume: "#f2e9e4",
   portfolio: "#f2e9e4",
   publication: "#f2e9e4",
+  award: "#f2e9e4",
   contact: "#f2e9e4",
 };
 
@@ -21,6 +22,7 @@ const lightSections = new Set([
   "resume",
   "portfolio",
   "publication",
+  "award",
   "contact",
 ]);
 
