@@ -6,31 +6,36 @@ export type ExperienceItem = {
   lat: number;
   lon: number;
   period: string;
-  description: string;
+  points: string[];
 };
 
 export const experiences: ExperienceItem[] = [
   {
-    role: "Student Job",
+    role: "Student Assistant",
     company: "Earth and Life Institute, Université catholique de Louvain",
     location: "Louvain-la-Neuve, Belgium",
     country: "Belgium",
     lat: 50.6683,
     lon: 4.6144,
     period: "June 2026 – July 2026",
-    description:
-      "Applied a field-boundary delineation model developed in my thesis to generate 2026 agricultural field boundary maps for the Wallonia region, fusing Sentinel-1 and Sentinel-2 time series to support regional-scale delineation.",
+    points: [
+      "Applied the field-boundary delineation model developed in my thesis to generate 2026 agricultural field boundary maps for the Wallonia region",
+      "Processed and fused Sentinel-2 time series data for the Walloon agricultural landscape to support regional-scale delineation",
+    ],
   },
   {
-    role: "Geospatial AI Internship",
+    role: "Geospatial AI Research Internship",
     company: "Estonian Land and Spatial Development Board",
     location: "Tartu, Estonia",
     country: "Estonia",
     lat: 58.378,
     lon: 26.7285,
     period: "May 2025 – Aug 2025",
-    description:
-      "Built reproducible raster processing pipelines with Python, GDAL and Rasterio, and automated spatial data validation across large orthophoto datasets in a Linux-based, containerised environment. Ran large-scale GIS analysis on national aerial imagery to support renewable-energy siting and land-use decisions.",
+    points: [
+      "Built a U-Net segmentation pipeline with a ResNet backbone for solar panel detection across aerial imagery, including spatial accuracy assessment of model predictions against ground reference data",
+      "Researched building height estimation from oblique imagery, using heatmap-based window detection as a structural cue for floor-count inference",
+      "Designed reproducible Python geospatial pipelines (PyTorch, GDAL, Rasterio, NumPy) for large-scale raster processing across national aerial imagery datasets",
+    ],
   },
   {
     role: "GIS Developer",
@@ -39,9 +44,12 @@ export const experiences: ExperienceItem[] = [
     country: "Nepal",
     lat: 27.7,
     lon: 85.33,
-    period: "May 2023 – Aug 2024",
-    description:
-      "Configured and maintained GeoServer to publish OGC-compliant WMS/WFS services, designed and managed PostgreSQL/PostGIS databases with spatial indexing and geometry validation, and built Python/REST API automation workflows delivering analysis-ready GIS layers to cross-functional teams.",
+    period: "May 2024 – Aug 2024",
+    points: [
+      "Built server-side geospatial pipelines for a satellite-based agricultural monitoring platform, integrating satellite data, vegetation indices, and field-level analytics",
+      "Managed and processed vector and raster geospatial data using PostGIS, GDAL, and GeoPandas, including database design and spatial indexing",
+      "Developed GIS data services and APIs with geometry validation, spatial filtering, and export functionality for large-scale geospatial datasets",
+    ],
   },
   {
     role: "WebGIS Developer Internship",
@@ -51,7 +59,9 @@ export const experiences: ExperienceItem[] = [
     lat: 27.7,
     lon: 85.33,
     period: "March 2023 – April 2023",
-    description:
-      "Integrated multi-source spatial datasets into a unified mapping platform and built an interactive web map visualising migrant mobility data. Designed WebGIS dashboards with React, OpenLayers and MapLibre GL to communicate spatial patterns to non-technical stakeholders.",
+    points: [
+      "Integrated multi-source spatial datasets into a unified mapping platform and built an interactive web map",
+      "Designed WebGIS dashboards with React, OpenLayers and MapLibre GL to communicate spatial patterns to non-technical stakeholders",
+    ],
   },
 ];

@@ -39,20 +39,42 @@ const Experience = () => {
   const step = experiences.length > 1 ? travel / (experiences.length - 1) : 0;
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (observedEntries) => {
-        observedEntries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.index);
-            if (!Number.isNaN(idx)) setActiveIndex(idx);
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
+    let rafId: number | null = null;
 
-    entryRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    const updateActive = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      entryRefs.current.forEach((el, idx) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(center - viewportCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = idx;
+        }
+      });
+      setActiveIndex(best);
+    };
+
+    const onScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        updateActive();
+        rafId = null;
+      });
+    };
+
+    updateActive();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -125,9 +147,11 @@ const Experience = () => {
                   <span className="w-1 h-1 bg-black/40 inline-block rounded-full" />
                   <span>{exp.location}</span>
                 </div>
-                <p className="mt-4 text-gray-700 leading-relaxed md:text-lg">
-                  {exp.description}
-                </p>
+                <ul className="mt-4 space-y-2 text-gray-700 leading-relaxed md:text-lg list-disc pl-5">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

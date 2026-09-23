@@ -14,6 +14,12 @@ const gridPattern = `data:image/svg+xml,${encodeURIComponent(
   </svg>`
 )}`;
 
+const researchInterests = [
+  "Multi-sensor, multitemporal remote sensing for environmental monitoring",
+  "Physics-informed machine learning and geospatial foundation models",
+  "GIS and spatial analysis for environmental and land-use applications",
+];
+
 const About = () => {
   return (
     <div className="bg-[#f2e9e4] w-full relative overflow-hidden">
@@ -47,18 +53,41 @@ const About = () => {
               with a focus on turning messy, multi-source spatial data into something models and decisions can actually rely on.            </p>
             <p>
               My research interest lies in understanding environmental systems and environmental change, particularly through approaches where 
-              observations and process-based machine learning models inform each other. Apart from this, I enjoy full-stack WebGIS development 
+              observations and process-based machine learning models inform each other. Apart from this, I enjoy GIS programming / development 
               and building tools that make spatial data usable.
             </p>
           </div>
         </div>
       </div>
-      <div className="relative mt-28">
-        <div className="w-[90vw] max-w-[80vw] mx-auto bg-[#f2e9e4] py-12 md:py-16">
-          <div className="hidden md:block absolute z-20 left-[27.6%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[20vh] bg-black/15 pointer-events-none" />
-        <div className="hidden md:block w-full h-[2px] bg-black/15 relative mb-10">
+      <div className="relative mt-16 md:mt-20">
+        <div className="w-[90vw] max-w-[80vw] mx-auto bg-[#f2e9e4] py-8 md:py-10">
+          <div className="hidden md:block absolute z-20 left-[27.6%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[14vh] bg-black/15 pointer-events-none" />
+        <div className="hidden md:block w-[50%] h-[2px] bg-black/15 relative mb-8">
+          <div className="absolute left-[10%] md:left-[43%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-[2px] bg-black" />
+          <div className="absolute left-[10%] md:left-[44%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-16 bg-black" />
+        </div>
+          <div className="flex flex-col gap-6 lg:pl-10 md:grid md:grid-cols-[22%_1fr] md:gap-0">
+            <div className="relative bg-[#f2e9e4] py-2 -my-2 inline-block w-fit md:block md:w-full">
+              <span className="inline-flex items-center gap-2 bg-[#e9dfd0] text-l tracking-widest uppercase px-4 py-2">
+                <span className="w-1.5 h-1.5 bg-black inline-block text-3xl" />
+                RESEARCH INTERESTS
+              </span>
+            </div>
+            <ul className="text-lg md:text-2xl text-gray-700 leading-relaxed space-y-2 py-2 -my-2 list-disc pl-6 md:pl-11">
+              {researchInterests.map((interest) => (
+                <li key={interest}>{interest}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative mt-16 md:mt-20">
+        <div className="w-[90vw] max-w-[80vw] mx-auto bg-[#f2e9e4] py-8 md:py-10">
+          <div className="hidden md:block absolute z-20 left-[27.6%] -translate-x-1/2 top-0 bottom-0 w-[2px] h-[14vh] bg-black/15 pointer-events-none" />
+        <div className="hidden md:block w-full h-[2px] bg-black/15 relative mb-8">
           <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-[2px] bg-black" />
-          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-24 bg-black" />
+          <div className="absolute left-[10%] md:left-[22%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-16 bg-black" />
         </div>
           <div className="flex flex-col gap-6 lg:pl-10 md:grid md:grid-cols-[22%_1fr] md:gap-0">
             <div className="relative bg-[#f2e9e4] py-2 -my-2 inline-block w-fit md:block md:w-full">
@@ -67,7 +96,7 @@ const About = () => {
                 MY SKILLSET
               </span>
             </div>
-            <div className="text-3xl md:text-5xl relative bg-[#f2e9e4] md:pl-6 py-2 -my-2">
+            <div className="text-3xl md:text-3xl relative bg-[#f2e9e4] md:pl-6 py-2 -my-2">
               Tools I work with
             </div>
           </div>

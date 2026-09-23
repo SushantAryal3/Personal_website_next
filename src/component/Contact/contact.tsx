@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import space from "@/component/Portfolio/photos/space_x_final_.png";
 import LinkedinIcon from "@/component/Icons/Linkedin";
+import OrcidIcon from "@/component/Icons/Orcid";
 import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 
 const GRID_SIZE = 80;
@@ -62,8 +63,9 @@ const Contact = () => {
                 <FiMail className="w-6 h-6 text-black/70 shrink-0" />
               </a>
             </div>
-            <div>
+            <div className="flex items-center gap-3">
               <LinkedinIcon />
+              <OrcidIcon />
             </div>
           </div>
         </div>
